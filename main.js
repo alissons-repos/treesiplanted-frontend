@@ -1,4 +1,4 @@
-const baseURL = 'http://127.0.0.1:5000/trees';
+const baseURL = 'http://localhost:5000/trees';
 let editingId = null; // Variável de estado para armazenar o ID da árvore que está sendo editada
 
 /**
@@ -13,7 +13,6 @@ const getTrees = async () => {
 		.then((res) => res.json())
 		.then((data) => {
 			if (data.length === 0) {
-				console.log('Não há nada');
 				const list = document.getElementById('myTreesList');
 				const li = document.createElement('li');
 				li.classList.add('list-item');
