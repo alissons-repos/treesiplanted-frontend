@@ -12,9 +12,22 @@ const getTrees = async () => {
 	})
 		.then((res) => res.json())
 		.then((data) => {
-			data.forEach((item) =>
-				insertList(item.custom_name, item.species, item.location, item.planting_date, item.id)
-			);
+			if (data.length === 0) {
+				console.log('Não há nada');
+				const list = document.getElementById('myTreesList');
+				const li = document.createElement('li');
+				li.classList.add('list-item');
+				li.classList.add('list');
+				li.innerHTML = `
+					<p class="main-info">Você ainda não registrou nenhuma árvore!</p><br />
+					<p class="sub-info">🌳 Faça o certo. Torne o mundo mais bonito e agradável!</p>
+				`;
+				list.appendChild(li);
+			} else {
+				data.forEach((item) =>
+					insertList(item.custom_name, item.species, item.location, item.planting_date, item.id)
+				);
+			}
 		})
 		.catch((error) => {
 			console.error('Erro na função getTrees:', error);
