@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Trees I Planted</title>
+		<link rel="shortcut icon" href="./assets/icons8-arvore.png" type="image/x-icon" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./styles/reset.css" />
+		<link rel="stylesheet" href="./styles/normalize.css" />
+		<link rel="stylesheet" href="./styles/styles.css" />
+		<script src="./main.js" defer></script>
+	</head>
+
+	<body>
+		<header class="banner">
+			<h1>Trees I Planted</h1>
+		</header>
+		<main>
+			<section class="form-section">
+				<h2>Ficha da Árvore</h2>
+				<form id="treeInformations">
+					<label for="custom_name">Nome Personalizado</label>
+					<input
+						id="custom_name"
+						name="custom_name"
+						type="text"
+						maxlength="128"
+						minlength="1"
+						placeholder="Coqueiro do Açude..."
+						required
+					/>
+					<label for="species">Espécie</label>
+					<input
+						id="species"
+						name="species"
+						type="text"
+						maxlength="128"
+						minlength="1"
+						placeholder="Cocos nucifera..."
+					/>
+					<label for="location">Localização</label>
+					<input
+						id="location"
+						name="location"
+						type="text"
+						maxlength="256"
+						minlength="1"
+						placeholder="Rua Pensilvânia, 558, Brooklin, São Paulo - SP, Brasil"
+						required
+					/>
+					<label for="planting_date">Data de Plantio</label>
+					<input
+						id="planting_date"
+						name="planting_date"
+						type="date"
+						maxlength="10"
+						minlength="10"
+						class="empty"
+						required
+					/>
+					<div class="btn-actions">
+						<button id="submitButton">Enviar</button>
+						<button id="updateButton" class="hidden">Atualizar</button>
+						<button id="resetButton">Cancelar</button>
+					</div>
+				</form>
+			</section>
+			<section class="list-section">
+				<h2>Minhas Árvores</h2>
+				<ul id="myTreesList" class="list"></ul>
+			</section>
+		</main>
+		<footer></footer>
+		<script>
+			let ele = document.getElementById('planting_date');
+			ele.onchange = function () {
+				if (ele.value === '') {
+					ele.classList.add('empty');
+				} else {
+					ele.classList.remove('empty');
+				}
+			};
+		</script>
+	</body>
+</html>
